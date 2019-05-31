@@ -1,5 +1,6 @@
 package com.tren.huantai.utils;
 
+import com.tren.huantai.model.support.HuantaiConst;
 import org.apache.commons.lang3.StringUtils;
 import org.commonmark.Extension;
 import org.commonmark.ext.front.matter.YamlFrontMatterExtension;
@@ -11,7 +12,7 @@ import org.commonmark.renderer.html.HtmlRenderer;
 import org.commonmark.renderer.text.TextContentRenderer;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
-import run.halo.app.model.support.HaloConst;
+
 
 import java.util.Collections;
 import java.util.List;
@@ -62,16 +63,16 @@ public class MarkdownUtils {
         final Node document = PARSER.parse(content);
         String renderContent = RENDERER.render(document);
         // render netease music short url
-        if (content.contains(HaloConst.NETEASE_MUSIC_PREFIX)) {
-            renderContent = content.replaceAll(HaloConst.NETEASE_MUSIC_REG_PATTERN, HaloConst.NETEASE_MUSIC_IFRAME);
+        if (content.contains(HuantaiConst.NETEASE_MUSIC_PREFIX)) {
+            renderContent = content.replaceAll(HuantaiConst.NETEASE_MUSIC_REG_PATTERN, HuantaiConst.NETEASE_MUSIC_IFRAME);
         }
         // render bilibili video short url
-        if (content.contains(HaloConst.BILIBILI_VIDEO_PREFIX)) {
-            renderContent = content.replaceAll(HaloConst.BILIBILI_VIDEO_REG_PATTERN, HaloConst.BILIBILI_VIDEO_IFRAME);
+        if (content.contains(HuantaiConst.BILIBILI_VIDEO_PREFIX)) {
+            renderContent = content.replaceAll(HuantaiConst.BILIBILI_VIDEO_REG_PATTERN, HuantaiConst.BILIBILI_VIDEO_IFRAME);
         }
         // render youtube video short url
-        if (content.contains(HaloConst.YOUTUBE_VIDEO_PREFIX)) {
-            renderContent = content.replaceAll(HaloConst.YOUTUBE_VIDEO_REG_PATTERN, HaloConst.YOUTUBE_VIDEO_IFRAME);
+        if (content.contains(HuantaiConst.YOUTUBE_VIDEO_PREFIX)) {
+            renderContent = content.replaceAll(HuantaiConst.YOUTUBE_VIDEO_REG_PATTERN, HuantaiConst.YOUTUBE_VIDEO_IFRAME);
         }
         return renderContent;
     }
