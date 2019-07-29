@@ -9,7 +9,7 @@ import lombok.Data;
  * @date : 2019/5/4
  */
 @Data
-public class EnvironmentDTO {
+public class EnvironmentDTO{
 
     private String database;
 

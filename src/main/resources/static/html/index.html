@@ -1,13 +1,95 @@
 <!DOCTYPE html>
-
-<html  lang="en">
-
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Bootstrap 实例</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.1.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/reset.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <script src="../webjars/jquery/3.4.1/jquery.js"></script>
+    <script src="../webjars/bootstrap/4.1.0/js/bootstrap.js"></script>
+    <script  src="../webjars/popper.js/1.14.1/umd/popper.js" ></script>
+    <style type="text/css">
+        .search{
+            float: none;
+        }
+
+    </style>
+
 </head>
 <body>
 
+
+<div style="padding: 100px 100px 10px;">
+    <div class="">
+    <table  id="titlebox">
+     <tr >
+         <td><a onclick="mytitleclick(this)" tabindex="0" style="font-size: large ;color: whitesmoke;" class="title" >新房</a></td>
+         <td><a onclick="mytitleclick(this)" tabindex="1" style="font-size: large ;color: whitesmoke;" class="title">小区</a></td>
+         <td><a onclick="mytitleclick(this)" tabindex="2" style="font-size: large ;color: whitesmoke;" class="title">二手房</a></td>
+        </tr>
+        <tr>
+            <td ><img  tabindex="0" src="../images/search-arr.png"></td>
+            <td> <img  tabindex="1" src="../images/search-arr.png"></td>
+            <td ><img  tabindex="2" src="../images/search-arr.png"></td>
+        </tr>
+
+
+    </table>
+        <script>
+          function mytitleclick(e){
+
+          var index=$(e).attr("tabindex");
+         init(index)
+
+          }
+          function init(s){
+              var table= $("#titlebox");
+              table.children().eq(0).children().eq(1).children().eq(s).eq(0).removeClass("hint").siblings().addClass("hint")
+          }
+            $(function(){
+                init(0)
+
+            });
+        </script>
+    </div>
+    <form>
+                <div class="input-group search" >
+<div  style="float:left;box-shadow:none">
+                    <input type="text" placeholder="请输入" class="form-control">
+
+        <ul  class="box" style="background: #1c2438;overflow-y:scroll ;white-space: nowrap;">
+            <li><a href="#">1</a></li>
+            <li><a href="#">2</a></li>
+            <li><a href="#">3</a></li>
+            <li><a href="#">4</a></li>
+            <li><a href="#">5</a></li>
+            <li><a href="#">6</a></li>
+            <li><a href="#">7</a></li>
+            <li><a href="#">8</a></li>
+            <li><a href="#">9</a></li>
+            <li><a href="#">10</a></li>
+            <li><a href="#">11</a></li>
+            <li><a href="#">12</a></li>
+            <li><a href="#">13</a></li>
+            <li><a href="#">14</a></li>
+            <li><a href="#">15</a></li>
+        </ul>
+
+</div>
+                    <span class="input-group-btn">
+						<button class="btn btn-default" type="button">
+						查找房源
+						</button>
+					</span>
+                    <br>
+
+                </div><!-- /input-group -->
+
+    </form>
+
+</div>
 
 
 </body>

@@ -35,7 +35,7 @@ public class HuantaiConst {
     /**
      * Suffix of freemarker template file
      */
-    public static final String SUFFIX_FTL = ".ftl";
+    public static final String SUFFIX_FTL = ".html";
 
     /**
      * Custom freemarker tag method key.

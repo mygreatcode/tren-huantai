@@ -1,7 +1,5 @@
 package run.halo.app.model.dto.base;
 
-import com.tren.huantai.utils.BeanUtils;
-import com.tren.huantai.utils.ReflectionUtils;
 import org.springframework.lang.Nullable;
 
 import java.lang.reflect.ParameterizedType;
@@ -29,7 +27,7 @@ public interface InputConverter<DOMAIN> {
 
         Class<DOMAIN> domainClass = (Class<DOMAIN>) currentType.getActualTypeArguments()[0];
 
-        return BeanUtils.transformFrom(this, domainClass);
+        return null;//BeanUtils.transformFrom(this, domainClass);
     }
 
     /**
@@ -37,9 +35,9 @@ public interface InputConverter<DOMAIN> {
      *
      * @param domain updated domain
      */
-    default void update(DOMAIN domain) {
-        BeanUtils.updateProperties(this, domain);
-    }
+//    default void update(DOMAIN domain) {
+//        BeanUtils.updateProperties(this, domain);
+//    }
 
     /**
      * Get parameterized type.
@@ -48,7 +46,7 @@ public interface InputConverter<DOMAIN> {
      */
     @Nullable
     default ParameterizedType parameterizedType() {
-        return ReflectionUtils.getParameterizedType(InputConverter.class, this.getClass());
+        return null; //ReflectionUtils.getParameterizedType(InputConverter.class, this.getClass());
     }
 }
 

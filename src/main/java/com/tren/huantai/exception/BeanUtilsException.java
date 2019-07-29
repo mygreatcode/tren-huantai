@@ -7,7 +7,7 @@ import org.springframework.http.HttpStatus;
  *
  * @author johnniang
  */
-public class BeanUtilsException extends HaloException {
+public class BeanUtilsException extends HuantaiException {
 
     public BeanUtilsException(String message) {
         super(message);

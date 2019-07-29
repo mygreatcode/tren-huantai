@@ -1,0 +1,130 @@
+a{
+    color: #000000;
+}
+.hint{
+    visibility: hidden;
+}
+/* Make the image fully responsive */
+.carousel-inner img {
+    width: 100%;
+    height: 100%;
+}
+
+.search {
+    margin-left:auto;
+    margin-right:auto;
+    width: 60%;
+    bottom: 200px;
+    border: 3px;
+    padding: 10px;
+    opacity: 100%;
+}
+.search table{
+    position: absolute;
+    right: 15%;
+    top: -35px;
+    width: 50%;
+    left: 15%;
+    height: 50px;
+    z-index: 10;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    color: #fff;
+    text-align: center;
+}
+.btn{
+    opacity: 100%;
+    background: #00ab84;
+    height: 60px;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", '微软雅黑', "Segoe UI", Tahoma, '宋体b8b体', SimSun, sans-serif;
+    font-size: large;
+    color:whitesmoke;
+}
+.put{
+    opacity: 100%;
+    height: 60px;
+    width: 100%;
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", '微软雅黑', "Segoe UI", Tahoma, '宋体b8b体', SimSun, sans-serif;
+    font-size: large;
+}
+
+*{
+    margin:0;
+    padding:0;
+}
+.box{
+    width: 100%;
+    height:500px;
+    background:lightgrey;
+    padding-top:10px;
+    overflow-y:scroll;
+    white-space: nowrap;
+}
+.nice-select{
+    width: 70%;
+}
+.box li{
+    width: 100%;
+    list-style:none
+}
+.box li a{
+    border:5px solid #aaa;
+    display:block;
+    height:60px;
+    text-decoration:none;
+    margin:0 0 -5px -5px;
+    position:relative;
+    z-index:0;
+    text-align:center;
+    line-height:60px;
+    color:#fff;
+    font-size:30px;
+}
+.box li a:hover{
+    border:5px solid #333;
+    z-index:1;
+}
+.logo{
+    position:absolute;
+    z-index:9999;
+    width: 132px;
+    height: 57px;
+    left: 100px;
+    top:40px;
+    float: none;
+}
+.slidbar{
+
+    position:absolute;
+    z-index:9999;
+    width: auto;
+    height: 57px;
+    right: 80px;
+    top:40px;
+
+}
+.slidbar nav ul li a{
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", '微软雅黑', "Segoe UI", Tahoma, '宋体b8b体', SimSun, sans-serif;
+    font-size: 25px;
+    color:white ;
+}
+.position_bar{
+    position:absolute;
+    background: #5b6270;
+    opacity:0.75;
+    filter:alpha(opacity=60);
+    z-index:9999;
+    width: auto;
+    height: 20px;
+    left: 252px;
+    top:60px;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+
+}
+.position_bar span{
+    font-family: "Hiragino Sans GB", "Microsoft Yahei UI", "Microsoft Yahei", '微软雅黑', "Segoe UI", Tahoma, '宋体b8b体', SimSun, sans-serif;
+    color:white ;
+}

@@ -1,0 +1,198 @@
+.center_info_main {
+  width: 586px;
+  min-height: 158px;
+  background: #ffffff;
+  box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+  position: absolute;
+  z-index: 50;
+  display: none;
+  padding-bottom: 14px;
+  top: 100%;
+  left: -14px;
+}
+.center_info_main:before {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 13.5px 13px 13.5px;
+  border-color: transparent transparent #eeeeee transparent;
+  content: '';
+  position: absolute;
+  top: -13px;
+  left: 11px;
+  z-index: 10;
+}
+.center_info_main:after {
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 12.5px 12px 12.5px;
+  border-color: transparent transparent #ffffff transparent;
+  content: '';
+  position: absolute;
+  top: -12px;
+  left: 12px;
+  z-index: 11;
+}
+.center_info_main.show {
+  display: block;
+}
+.center_info_main .center_info_top {
+  width: 100%;
+  overflow: hidden;
+}
+.center_info_main .center_info_top .center_info_wrapper {
+  width: 206px;
+  height: 144px;
+  float: left;
+  display: inline-block;
+  margin: 14px 14px 0;
+}
+.center_info_main .center_info_top .center_info_wrapper img {
+  width: 100%;
+  height: 100%;
+}
+.center_info_main .center_info_top .center_info_content {
+  float: left;
+  width: 352px;
+  overflow: hidden;
+  margin-top: 14px;
+}
+.center_info_main .center_info_top .center_info_content .center_info_name {
+  width: 100%;
+  overflow: hidden;
+  font-size: 16px;
+  color: #333333;
+  line-height: 16px;
+  margin-top: 4px;
+  font-weight: bold;
+}
+.center_info_main .center_info_top .center_info_content .center_info_name .center_tel {
+  font-size: 12px;
+  color: #666;
+  background: url("../img/home/center_tel_ico.png") no-repeat left center;
+  padding-left: 20px;
+  vertical-align: middle;
+  margin-left: 10px;
+}
+.center_info_main .center_info_top .center_info_content .center_info_address {
+  width: 100%;
+  overflow: hidden;
+  font-size: 12px;
+  color: #666666;
+  line-height: 17px;
+  margin-top: 9px;
+}
+.center_info_main .center_info_top .center_info_content .center_desc_tit {
+  width: 100%;
+  overflow: hidden;
+  font-size: 14px;
+  color: #333333;
+  line-height: 14px;
+  margin-top: 19px;
+  font-weight: bold;
+}
+.center_info_main .center_info_top .center_info_content .center_desc {
+  width: 324px;
+  overflow: hidden;
+  font-size: 12px;
+  color: #666666;
+  line-height: 17px;
+  margin-top: 8px;
+}
+.center_info_main .center_map {
+  display: block;
+  width: 46px;
+  height: 22px;
+  border: 1px solid #eee;
+  text-align: center;
+  line-height: 22px;
+  font-size: 12px;
+  color: #999;
+  position: absolute;
+  top: 16px;
+  right: 26px;
+}
+.center_info_main .center_agent_list {
+  margin: 32px 36px 5px 14px;
+}
+.center_info_main .center_agent_list .recommend_agent_list {
+  float: left;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item {
+  width: 108px;
+  overflow: hidden;
+  display: inline-block;
+  float: left;
+  margin-right: 40px;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item:last-child {
+  margin-right: 0;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item .recommend_agent_img {
+  width: 80px;
+  height: 80px;
+  border: 1px solid #eeeeee;
+  margin: 0 auto;
+  border-radius: 100%;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item .recommend_agent_img img {
+  width: 100%;
+  height: 100%;
+  border-radius: 100%;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item .recommend_agent_ico {
+  display: block;
+  margin-top: -12px;
+}
+.center_info_main .center_agent_list .recommend_agent_list .recommend_agent_item .recommend_agent_name {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #333;
+  line-height: 20px;
+  margin-top: 2px;
+}
+.center_info_main .center_agent_list .recommend_agent_info {
+  float: right;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_agent_tit {
+  width: 100%;
+  text-align: center;
+  font-size: 14px;
+  color: #333333;
+  line-height: 20px;
+  font-weight: bold;
+  margin-top: 2px;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_agent_num {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #999999;
+  line-height: 14px;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_agent_num .agent_num {
+  font-size: 38px;
+  line-height: 53px;
+  color: #333;
+  font-weight: bold;
+  margin: 0 2px;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_community_agent_num {
+  width: 100%;
+  text-align: center;
+  font-size: 12px;
+  color: #999999;
+  line-height: 14px;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_agent_href_box {
+  width: 100%;
+  text-align: center;
+  margin-top: 9px;
+}
+.center_info_main .center_agent_list .recommend_agent_info .recommend_agent_href_box a {
+  font-size: 12px;
+  line-height: 17px;
+  color: #00AB84;
+}

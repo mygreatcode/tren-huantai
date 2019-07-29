@@ -1,0 +1,82 @@
+/* 公共样式开始 */
+
+.wrapper { margin: auto; width: 1160px; }
+
+.header {height: 34px; background-color: #f6f6f6;}
+.header .links {float: left; line-height: 34px;}
+.header .links a {padding-right: 12px; color: #666; text-decoration: none;}
+.header .links a:hover {color: #03ac86;}
+.header .user {float: right; line-height: 34px; color: #AAA;}
+.header .user a {padding: 0 2px; color: #666; text-decoration: none;}
+.header .user a:hover {color: #03ac86;}
+.header .user a.in {padding-left: 24px; background: url(../images/user.png) no-repeat left center;}
+.header .user span {padding-left: 20px; color: #666;}
+
+.footer { padding-bottom: 100px; background: #1F1F1F url(../images/footer.png) no-repeat bottom center;}
+.footer .links {padding-top: 20px;}
+.footer .links a {padding-right: 10px; line-height: 30px; color: #CCC; font-size: 14px; text-decoration: none;}
+.footer .links a:hover {color: #FFF;}
+.footer .er {padding-top: 20px;}
+.footer .copyright {padding-top: 20px; line-height: 24px; color: #999; font-size: 14px;}
+
+
+/* 公共样式结束 */
+
+/* 首页开始 */
+
+.banner {height: 650px;}
+.banner .nav {padding-top: 40px;}
+.banner .nav .logo {float: left;}
+.banner .nav .right {float: right;}
+.banner .nav .right .user {color: #FFF;}
+.banner .nav .right .user a {color: #EEE; text-decoration: none;}
+.banner .nav .right .user a:hover {color: #FFF;}
+.banner .nav .right .user-center {float: right; margin-right: 20px;}
+.banner .nav .right .user-login {float: right;}
+.banner .nav .right .nav-list {padding-top: 6px;}
+.banner .nav .right .nav-list ul {}
+.banner .nav .right .nav-list ul li {float: left; padding-left: 20px; line-height: 30px;}
+.banner .nav .right .nav-list ul li a {color: #EEE; font-size: 16px; font-weight: bold; text-decoration: none;}
+.banner .nav .right .nav-list ul li a:hover {color: #FFF;}
+
+.banner .logo-txt {margin: 140px auto auto auto; width: 540px;}
+
+.banner .search {margin: 60px auto auto auto; width: 710px; height: 200px;}
+.banner .search .search-type {}
+.banner .search .search-type ul {}
+.banner .search .search-type ul li {float: left; margin-right: 20px; padding-bottom: 10px; background: none; line-height: 20px; color: #CCC; font-size: 14px;}
+.banner .search .search-type ul li.on {background: url(../images/search-arr.png) no-repeat center bottom; color: #FFF;}
+.banner .search .search-input input {display: block; float: left; background: none; border: none;}
+.banner .search .search-input input[type="text"] {padding: 0 24px 0 16px; width: 540px; height: 55px; background-color: #fff; border-radius: 3px 0 0 3px; line-height: 55px; font-size: 14px; color: #333;}
+.banner .search .search-input input[type="submit"] {width: 130px; height: 55px; background-color: #01b189; border-radius:  0 3px 3px 0; line-height: 55px; color: #FFF; font-size: 16px; }
+
+.publink {width: 100%; height: 240px; background-color: rgb(1,177,137,.6);}
+.publink .pic {float: left; margin: 70px 0 0 0;}
+.publink .btn {float: right;}
+.publink .btn a {display: block; margin-top: 80px; width: 260px; background-color: #fff; border: none; line-height: 50px; text-align: center; color: #01b189; font-size: 18px; font-weight: bold; text-decoration: none;}
+.publink .btn p {width: 260px; line-height: 40px; text-align: center; color: #FFF; font-size: 16px;}
+
+.adv {padding: 30px 0; width: 100%; background-color: #FFF;}
+.adv h2 {text-align: center; color: #555; font-size: 30px;}
+.adv ul {padding: 25px;}
+.adv ul li {float: left; width: 370px;}
+.adv ul li img {display: block; margin: auto;}
+.adv ul li h4 {line-height: 40px; text-align: center; color: #333; font-size: 18px; font-weight: normal;}
+.adv ul li p {margin: auto; width: 230px; line-height: 20px; text-align: center; color: #888;}
+
+/* 首页结束 */
+
+/* 列表页开始 */
+.list-search {padding: 25px 0; height: 50px;}
+.list-search .logo {float: left; margin-top: 7px;}
+.list-search .search {float: left; margin: 3px 0 0 50px; padding-left: 15px; width: 560px; height: 42px; border: 1px solid #EEE; border-radius: 2px; }
+.list-search .search input {display: block; float: left; background: none; border: none;}
+.list-search .search input[type="text"] {width: 520px; height: 42px; line-height: 42px; font-size: 14px; color: #999;}
+.list-search .search input[type="submit"] {width: 40px; height: 42px; background: url(../images/search-icon.png) no-repeat center center; cursor: pointer; }
+.list-search .links {float: right; line-height: 50px;}
+.list-search .links a {padding-left: 25px; color: #333; font-size: 16px; font-weight: bold; text-decoration: none;}
+.list-search .links h3 {display: inline; color: #03ac86;}
+
+.search-where {margin-top: 20px;}
+
+/* 列表页结束 */

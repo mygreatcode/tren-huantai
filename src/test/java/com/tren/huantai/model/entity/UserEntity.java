@@ -16,6 +16,8 @@ public class UserEntity {
     private String phonenumber;
     private String userid;
     private String authority;
+    private String nickname;
+    private String password;
 
     @Id
     @Column(name = "id")
@@ -126,5 +128,25 @@ public class UserEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, name, birthday, sex, headimg, mobilenumber, phonenumber, userid, authority);
+    }
+
+    @Basic
+    @Column(name = "nickname")
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    @Basic
+    @Column(name = "password")
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
     }
 }

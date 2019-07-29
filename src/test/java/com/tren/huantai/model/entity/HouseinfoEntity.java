@@ -28,6 +28,8 @@ public class HouseinfoEntity {
     private String sellingpoints;
     private String houseencoding;
     private Timestamp releasetime;
+    private String imgid;
+    private String locationid;
 
     @Id
     @Column(name = "id")
@@ -248,5 +250,25 @@ public class HouseinfoEntity {
     @Override
     public int hashCode() {
         return Objects.hash(id, houseid, headline, price, housetype, area, previewimgurl, xiaoqu, location, buildingtime, buildinghead, floor, unitprice, downpayment, monthlypay, decorated, sellingpoints, houseencoding, releasetime);
+    }
+
+    @Basic
+    @Column(name = "imgid")
+    public String getImgid() {
+        return imgid;
+    }
+
+    public void setImgid(String imgid) {
+        this.imgid = imgid;
+    }
+
+    @Basic
+    @Column(name = "locationid")
+    public String getLocationid() {
+        return locationid;
+    }
+
+    public void setLocationid(String locationid) {
+        this.locationid = locationid;
     }
 }

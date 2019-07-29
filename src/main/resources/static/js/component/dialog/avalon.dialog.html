@@ -1,0 +1,17 @@
+<div class="oni-dialog-inner" xmlns:ms="http://www.w3.org/1999/xhtml">
+    <div class="oni-dialog-header">
+        <div class="oni-dialog-close" ms-click="_close" ms-if="showClose">
+            <i class="oni-icon oni-icon-times">&#xf003;</i>
+        </div>
+        <div class="oni-dialog-title" ms-if="title" ms-html="title|html"></div>
+    </div>
+    <div class="oni-dialog-content" ms-html="content|html"></div>
+    <div class="oni-dialog-footer oni-helper-clearfix">
+        <div class="oni-dialog-btns">
+            <ms:button ms-attr-color="buttonColor" ms-hover="oni-state-hover" ms-click="_confirm" ms-attr-text="confirmText">
+            </ms:button>
+            <ms:button ms-visible="type =='confirm'" ms-hover="oni-state-hover" ms-click="_cancel" ms-attr-text="cancelText">
+            </ms:button>
+        </div>
+    </div>
+</div>

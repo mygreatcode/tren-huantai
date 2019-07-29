@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>hello</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link href="asserts/css/bootstrap.min.css" th:href="@{/webjars/bootstrap/4.0.0/css/bootstrap.css}" rel="stylesheet">
+</head>
+<body>
+<div class="navbar">
+    <div class="navbar-inner">
+        <a class="brand" href="#">Title</a>
+        <ul class="nav">
+            <li class="active"><a href="#">首页</a></li>
+            <li><a href="#">Link</a></li>
+            <li><a href="#">Link</a></li>
+        </ul>
+    </div>
+</div>
+
+<tr th:each="product : ${houseinfo}">
+    <td th:text="${product.getArea()}">Red chair</td>
+    <td th:text="${product.getBuildinghead()}">Red chair</td>
+    <td th:text="${product.getBuildingtime()}">Red chair</td>
+    <td th:text="${product.getDecorated()}">Red chair</td>
+    <td th:text="${product.getDownpayment()}">Red chair</td>
+    <td th:text="${product.getFloor()}">Red chair</td>
+    <td th:text="${product.getHeadline()}">Red chair</td>
+    <td th:text="${product.getHouseencoding()}">Red chair</td>
+    <td th:text="${product.getHouseid()}">Red chair</td>
+    <td th:text="${product.getHousetype()}">Red chair</td>
+    <td th:text="${product.getId()}">Red chair</td>
+    <td th:text="${product.getLocation()}">Red chair</td>
+    <td th:text="${product.getMonthlypay()}">Red chair</td>
+    <td th:text="${product.getPreviewimgurl()}">Red chair</td>
+    <td th:text="${product.getPrice()}">Red chair</td>
+    <td th:text="${product.getSellingpoints()}">Red chair</td>
+</tr>
+<!--
+     private int id;
+    private String houseid;
+    private String headline;
+    private int headline;
+    private String housetype;
+    private String area;
+    private String previewimgurl;
+    private String locationid;
+    private Date buildingtime;
+    private String buildinghead;
+    private String floor;
+    private int unitprice;
+    private String downpayment;
+    private String monthlypay;
+    private String decorated;
+    private String sellingpoints;
+    private String houseencoding;
+    private Timestamp releasetime;
+<p th:text="'Hello, ' + ${name.userid} + '!'" ></p>-->
+</body>
+</html>
