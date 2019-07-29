@@ -5,8 +5,8 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "user", schema = "houseproperty", catalog = "")
-public class UserEntity {
+@Table(name = "userinfo", schema = "houseproperty", catalog = "")
+public class UserinfoEntity {
     private int id;
     private String name;
     private Date birthday;
@@ -15,9 +15,6 @@ public class UserEntity {
     private String mobilenumber;
     private String phonenumber;
     private String userid;
-    private String authority;
-    private String nickname;
-    private String password;
 
     @Id
     @Column(name = "id")
@@ -99,21 +96,11 @@ public class UserEntity {
         this.userid = userid;
     }
 
-    @Basic
-    @Column(name = "authority")
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
+        UserinfoEntity that = (UserinfoEntity) o;
         return id == that.id &&
                 sex == that.sex &&
                 Objects.equals(name, that.name) &&
@@ -121,32 +108,11 @@ public class UserEntity {
                 Objects.equals(headimg, that.headimg) &&
                 Objects.equals(mobilenumber, that.mobilenumber) &&
                 Objects.equals(phonenumber, that.phonenumber) &&
-                Objects.equals(userid, that.userid) &&
-                Objects.equals(authority, that.authority);
+                Objects.equals(userid, that.userid);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, birthday, sex, headimg, mobilenumber, phonenumber, userid, authority);
-    }
-
-    @Basic
-    @Column(name = "nickname")
-    public String getNickname() {
-        return nickname;
-    }
-
-    public void setNickname(String nickname) {
-        this.nickname = nickname;
-    }
-
-    @Basic
-    @Column(name = "password")
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
+        return Objects.hash(id, name, birthday, sex, headimg, mobilenumber, phonenumber, userid);
     }
 }
