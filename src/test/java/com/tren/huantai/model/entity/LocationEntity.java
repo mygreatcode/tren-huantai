@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "location", schema = "houseproperty", catalog = "")
+@Table(name = "location", schema = "huantai", catalog = "")
 public class LocationEntity {
     private int id;
     private String loactionid;
@@ -13,6 +13,7 @@ public class LocationEntity {
     private String detailedaddress;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

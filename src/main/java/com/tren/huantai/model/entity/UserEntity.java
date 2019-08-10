@@ -1,25 +1,53 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
-import java.sql.Date;
+import java.io.Serializable;
+import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "user", schema = "houseproperty", catalog = "")
-public class UserEntity {
+@Table(name = "user", schema = "huantai", catalog = "")
+public class UserEntity implements Serializable {
     private int id;
-    private String name;
-    private Date birthday;
-    private byte sex;
-    private String headimg;
-    private String mobilenumber;
-    private String phonenumber;
-    private String userid;
-    private String authority;
     private String nickname;
+    private String email;
     private String password;
+    private String authority;
+    private UserinfoEntity userinfoEntity;
+    private int state;
+
+    @Basic
+    @Column(name = "email")
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    @OneToOne(mappedBy = "userEntity" ,cascade=CascadeType.ALL)
+    public UserinfoEntity getUserinfoEntity() {
+        return userinfoEntity;
+    }
+
+    public void setUserinfoEntity(UserinfoEntity userinfoEntity) {
+        this.userinfoEntity = userinfoEntity;
+    }
+
+    @Basic
+    @Column(name = "state")
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -27,107 +55,6 @@ public class UserEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "name")
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    @Basic
-    @Column(name = "birthday")
-    public Date getBirthday() {
-        return birthday;
-    }
-
-    public void setBirthday(Date birthday) {
-        this.birthday = birthday;
-    }
-
-    @Basic
-    @Column(name = "sex")
-    public byte getSex() {
-        return sex;
-    }
-
-    public void setSex(byte sex) {
-        this.sex = sex;
-    }
-
-    @Basic
-    @Column(name = "headimg")
-    public String getHeadimg() {
-        return headimg;
-    }
-
-    public void setHeadimg(String headimg) {
-        this.headimg = headimg;
-    }
-
-    @Basic
-    @Column(name = "mobilenumber")
-    public String getMobilenumber() {
-        return mobilenumber;
-    }
-
-    public void setMobilenumber(String mobilenumber) {
-        this.mobilenumber = mobilenumber;
-    }
-
-    @Basic
-    @Column(name = "phonenumber")
-    public String getPhonenumber() {
-        return phonenumber;
-    }
-
-    public void setPhonenumber(String phonenumber) {
-        this.phonenumber = phonenumber;
-    }
-
-    @Basic
-    @Column(name = "userid")
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
-
-    @Basic
-    @Column(name = "authority")
-    public String getAuthority() {
-        return authority;
-    }
-
-    public void setAuthority(String authority) {
-        this.authority = authority;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        UserEntity that = (UserEntity) o;
-        return id == that.id &&
-                sex == that.sex &&
-                Objects.equals(name, that.name) &&
-                Objects.equals(birthday, that.birthday) &&
-                Objects.equals(headimg, that.headimg) &&
-                Objects.equals(mobilenumber, that.mobilenumber) &&
-                Objects.equals(phonenumber, that.phonenumber) &&
-                Objects.equals(userid, that.userid) &&
-                Objects.equals(authority, that.authority);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, name, birthday, sex, headimg, mobilenumber, phonenumber, userid, authority);
     }
 
     @Basic
@@ -148,5 +75,31 @@ public class UserEntity {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    @Basic
+    @Column(name = "authority")
+    public String getAuthority() {
+        return authority;
+    }
+
+    public void setAuthority(String authority) {
+        this.authority = authority;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        UserEntity that = (UserEntity) o;
+        return id == that.id &&
+                Objects.equals(nickname, that.nickname) &&
+                Objects.equals(password, that.password) &&
+                Objects.equals(authority, that.authority);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(id, nickname, password, authority);
     }
 }

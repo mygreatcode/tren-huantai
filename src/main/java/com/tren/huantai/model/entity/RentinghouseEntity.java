@@ -1,17 +1,52 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "rentinghouse", schema = "houseproperty", catalog = "")
-public class RentinghouseEntity {
+@Table(name = "rentinghouse", schema = "huantai", catalog = "")
+public class RentinghouseEntity implements Serializable {
     private int id;
-    private String rentinghouseid;
-    private String userid;
-    private Integer state;
+    private Integer state;//状态：0(禁用) 1（审核） 2（上线） 3（已售卖）
+    private int recommend;//推荐 0:普通 1推荐
+   private RentinghouseinfoEntity rentinghouseinfoEntity;
+   private UserinfoEntity userinfoEntity;
+
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "USER_RENTINGHOUSE_KEY")
+    public UserinfoEntity getUserinfoEntity() {
+        return userinfoEntity;
+    }
+
+    public void setUserinfoEntity(UserinfoEntity userinfoEntity) {
+        this.userinfoEntity = userinfoEntity;
+    }
+
+
+
+
+    @OneToOne(mappedBy = "rentinghouseEntity",cascade=CascadeType.ALL)
+    public RentinghouseinfoEntity getRentinghouseinfoEntity() {
+        return rentinghouseinfoEntity;
+    }
+
+    public void setRentinghouseinfoEntity(RentinghouseinfoEntity rentinghouseinfoEntity) {
+        this.rentinghouseinfoEntity = rentinghouseinfoEntity;
+    }
+
+    @Basic
+    @Column(name = "recommend")
+    public int getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(int recommend) {
+        this.recommend = recommend;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -21,25 +56,6 @@ public class RentinghouseEntity {
         this.id = id;
     }
 
-    @Basic
-    @Column(name = "rentinghouseid")
-    public String getRentinghouseid() {
-        return rentinghouseid;
-    }
-
-    public void setRentinghouseid(String rentinghouseid) {
-        this.rentinghouseid = rentinghouseid;
-    }
-
-    @Basic
-    @Column(name = "userid")
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
-    }
 
     @Basic
     @Column(name = "state")
@@ -57,13 +73,11 @@ public class RentinghouseEntity {
         if (o == null || getClass() != o.getClass()) return false;
         RentinghouseEntity that = (RentinghouseEntity) o;
         return id == that.id &&
-                Objects.equals(rentinghouseid, that.rentinghouseid) &&
-                Objects.equals(userid, that.userid) &&
                 Objects.equals(state, that.state);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, rentinghouseid, userid, state);
+        return Objects.hash(id,state);
     }
 }

@@ -1,20 +1,48 @@
 package com.tren.huantai.model.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "oldhouse", schema = "houseproperty", catalog = "")
-public class OldhouseEntity {
+@Table(name = "oldhouse", schema = "huantai", catalog = "")
+public class OldhouseEntity implements Serializable {
     private int id;
-    private String oldhouseid;
-    private String userid;
+    private int recommend;
     private String state;
+    private UserinfoEntity oldhouseuserinfo;
+    private OldhouseinfoEntity oldhouseinfoEntity;
+
+    @OneToOne(mappedBy = "oldhouseEntity",cascade=CascadeType.ALL)
+    public OldhouseinfoEntity getOldhouseinfoEntity() {
+        return oldhouseinfoEntity;
+    }
+
+    public void setOldhouseinfoEntity(OldhouseinfoEntity oldhouseinfoEntity) {
+        this.oldhouseinfoEntity = oldhouseinfoEntity;
+    }
+    @ManyToOne(cascade=CascadeType.ALL)
+    @JoinColumn(name = "USER_OLDHOUSE_KEY")
+    public UserinfoEntity getOldhouseuserinfo() {
+        return oldhouseuserinfo;
+    }
+
+    public void setOldhouseuserinfo(UserinfoEntity oldhouseuserinfo) {
+        this.oldhouseuserinfo = oldhouseuserinfo;
+    }
 
     @Basic
+    @Column(name = "recommend")
+    public int getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(int recommend) {
+        this.recommend = recommend;
+    }
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -22,26 +50,6 @@ public class OldhouseEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    @Basic
-    @Column(name = "oldhouseid")
-    public String getOldhouseid() {
-        return oldhouseid;
-    }
-
-    public void setOldhouseid(String oldhouseid) {
-        this.oldhouseid = oldhouseid;
-    }
-
-    @Basic
-    @Column(name = "userid")
-    public String getUserid() {
-        return userid;
-    }
-
-    public void setUserid(String userid) {
-        this.userid = userid;
     }
 
     @Basic
@@ -60,13 +68,11 @@ public class OldhouseEntity {
         if (o == null || getClass() != o.getClass()) return false;
         OldhouseEntity that = (OldhouseEntity) o;
         return id == that.id &&
-                Objects.equals(oldhouseid, that.oldhouseid) &&
-                Objects.equals(userid, that.userid) &&
                 Objects.equals(state, that.state);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, oldhouseid, userid, state);
+        return Objects.hash(id, state);
     }
 }

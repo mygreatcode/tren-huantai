@@ -1,0 +1,213 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="utf-8"/>
+    <title>郑州二手房,郑州二手房出售-真二网</title>
+    <meta name="baidu-site-verification" content="WnXc8PvRtB" />
+    <meta name="360-site-verification" content="9d81d64111f394cd8a83a3570810ad00" />
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=10,IE=9,IE=8,IE=edge,chrome=1">
+    <meta name="keywords" content="二手房,二手房出售,郑州二手房,二手房网">
+    <meta name="Description" content="环太房产网，为您提供二手房出售，二手房房屋买卖交易信息；地图，商圈，地铁找房，更多二手房房源信息，就在真二网">
+    <meta http-equiv="Pragma" content="no-cache">
+    <link rel="shortcut icon" href="../images/a/desktop/img/favicon-new.ico" type="image/x-icon"/>
+    <link type="text/css" th:href="@{/css/public.min.css}" rel="stylesheet" />
+    <link type="text/css" th:href="@{/css/jquery.mCustomScrollbar.css}" rel="stylesheet" />
+    <link rel="stylesheet" th:href="@{/css/login.min.css}">
+    <link rel="stylesheet" th:href="@{/css/new_search.css}">
+    <link rel="stylesheet" th:href="@{/css/help_popup.min.css}">
+    <link type="text/css" th:href="@{/css/animate.css}" rel="stylesheet" />
+    <script src="../js/vendor/avalon.min.js" type="text/javascript" th:src="@{/js/vendor/avalon.min.js}"></script>
+    <script th:src="@{js/vendor/parabola.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-1.11.1.min.js}"></script>
+    <script th:src="@{/js/vendor/base.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery-ui-1.10.4.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery.mousewheel.min.js}"></script>
+    <script th:src="@{/js/vendor/jquery.mCustomScrollbar.min.js}"></script>
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.js}"></script>
+    <script th:src="@{/webjars/bootstrap/4.1.0/js/bootstrap.js}"></script>
+</head>
+<body ms-controller="public_page">
+<div class="top_nav">
+    <div class="top_container">
+        <ul class="top_nav_list">
+
+            <li th:each="mn,start:${menu}" class="top_nav_item">
+                <a th:href="${mn.getUrl()}" target="_self" th:text="${mn.getMenu()}">首页</a>                        </li>
+        </ul>
+        <div class="top_nav_right">
+            <div class="login">
+                <a class="login_ico" data-loginType="dl">登录</a>/<a class="login_ico" data-loginType="zc">注册</a>
+            </div>
+            <div class="phone">咨询热线         400-013-2229转2</div>
+        </div>
+    </div>
+</div><!-- main-content -->
+<style>
+    a {
+        color: #000000;
+    }
+</style>
+
+<div id="house_search">
+
+    <div class="wrapper">
+        <div class="content_wrapper">
+            <div class="filtrate">
+                <div class="district_filtrate">
+                    <span class="filtrate_name">区域：</span>
+                    <a>
+                        会泽县
+                    </a>
+                    <span>>>></span>
+                    <a>
+                        教育小区
+                    </a>
+
+                </div>
+
+            </div>
+
+            <div class="list_wrapper">
+                <div class="left_list_wrapper">
+                    <div class="found_total">
+                        <span class="total_num">共找到<i class="num" th:text="${page.getTotalElements()}">39187</i>套二手房</span>
+                    </div>
+                    <div class="order_tag">
+                        <ul>
+                            <li  class="active" >
+                                <a href="?order=">默认排序</a>
+                            </li>
+                            <li >
+                                <a href="?order=7">最新发布</a>
+                            </li>
+                            <li >
+                                <a href="?order=1">
+                                    总价
+                                </a>
+                            </li>
+                            <li >
+                                <a href="?order=5">
+                                    房屋均价
+                                </a>
+                            </li>
+                            <li >
+                                <a href="?order=3">
+                                    面积
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="search_list_check" v-cloak>
+                        <checkbox label="1" v-model="o5">
+                            <span> 满五唯一</span>
+                        </checkbox>
+                        <checkbox label="1" v-model="o2">
+                            <span> 满二</span>
+                        </checkbox>
+                        <checkbox label="0" v-model="is_quality">
+                            <span> 优质房</span>
+                        </checkbox>
+                    </div>
+                    <ul class="search_list">
+                        <li th:each="info,start:${houseinfo}" class="search_item">
+                            <a href=""
+                               target="_blank">
+                                <div class="search_img">
+                                    <img th:if="${start.index==0}" th:each="img,start:${info.getOldimgEntity()}" th:src="${img.getImgurl()}"
+                                         onerror="this.src='/images/location/testhouse.jpg';this.onerror=null">
+                                </div>
+                            </a>
+                            <div class="search_info">
+                                <div class="search_title">
+                                    <a href=""
+                                       target="_blank"
+                                       class="house_name " th:text="${info.getHeadline()}">
+                                        两居室，业主诚心出售。地铁口500米
+                                    </a>
+                                    <span th:if="${!info.getSellingpoints().isEmpty()}" class="recommend_ico" th:text="${info.getSellingpoints()}">稀缺好房</span>
+                                </div>
+                                <div class="house_info">
+                                    <div class="house_info_main">
+                                        <a href=""
+                                           target="_blank" th:text="${info.getLocationEntity().getXiaoqu()}">小区</a>
+                                        <span>|</span>
+                                        <a th:text="${info.getHouseStructureEntity().getBedroom()}+'室'+${info.getHouseStructureEntity().getLobby()}+'厅'+${info.getHouseStructureEntity().getToilet()}+'卫'+${info.getHouseStructureEntity().getKitchen()}+'厨'"> 2室2厅1卫1厨</a>
+                                        <span>|</span>
+                                        <a th:text="${info.getArea()}+'平米'">83平米</a>
+
+                                    </div>
+                                </div>
+                                <div class="floor_info">
+                                    <div class="floor_info_main">
+                                        <a th:text="${info.getFloor()}+'楼'"></a>
+                                    </div>
+                                </div>
+                                <ul class="house_tags">
+                                    <li th:each="tag:${info.getTag().split('&')}" th:text="${tag}">房小二实拍</li>
+                                </ul>
+
+
+                                <a href="/zz/house/262302/#house_calculator"
+                                   target="_blank">
+
+                                    <div class="save_money_box">
+                                        <img src="../images/a/desktop/img/public/save_ico.png" class="save_ico">
+                                        <span class="save_num">25600</span>
+                                        <span class="save_unit">元</span>
+                                    </div>
+                                </a>
+                                <div class="price_info">
+                                    <div class="total_price">
+                                        <span class="num"  th:text="${info.getPrice()}">120</span>
+                                        万
+                                    </div>
+                                    <div class="unit_price" th:text="'单价'+${info.getUnitprice()}+'元/平米'">
+
+                                    </div>
+                                </div>
+                                <div class="operation_btn">
+                                    <a class="contrasts contrast_262302"
+                                       data-house-id="262302"><span>加入对比</span></a>
+                                    <a class="favorite" data-house-id="262302"><span>收藏</span></a>
+                                </div>
+                            </div>
+                        </li>
+
+
+                    </ul>
+
+
+                    <div class="search_page">
+                        <ul class="pagination page">
+                            <li class="disabled"><span th:if="${page.isFirst()}">首页</span><a th:href="@{/huantai.newhouseinfo(citycode=${citycode})}" th:if="${!page.isFirst()}">首页</a></li>
+                            <li class="disabled"><span th:if="${page.isFirst()}">前一页</span><a th:href="@{/huantai.newhouseinfo(page=${page.getNumber()},citycode=${ccitycode})}" th:if="${!page.isFirst()}">前一页</a></li>
+                            <li class="active"><span th:text="${page.getNumber()}+1" >1</span></li>
+                            <li th:if="${page.getNumber()+2<page.getTotalPages()}"><a th:href="@{/huantai.newhouseinfo(page=${page.getNumber()}+2,citycode=${citycode})}"th:text="${page.getNumber()}+2">2</a></li>
+                            <li  th:if="${page.getNumber()+3<page.getTotalPages()}"><a th:href="@{/huantai.newhouseinfo(page=${page.getNumber()}+3,citycode=${citycode})}" th:text="${page.getNumber()}+3">3</a></li>
+                            <li><span>&hellip;</span></li>
+                            <li><a th:href="@{/huantai.newhouseinfo(page=${page.getTotalPages()},citycode=${citycode})}" th:text="${page.getTotalPages()}">100</a></li>
+
+                            <li><span th:if="${!page.hasNext()}" >后一页</span> <a th:href="@{/huantai.newhouseinfo(page=${page.getNumber()}+2,citycode=${citycode})}" th:if="${page.hasNext()}">后一页</a></li>
+
+                            <li><span th:if="${!page.hasNext()}">末页</span><a th:href="@{/huantai.newhouseinfo(page=${page.getTotalPages()},citycode=${citycode})}" th:if="${page.hasNext()}">末页</a></li>
+
+                        </ul>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- /end main-content -->
+
+
+</div>
+
+<div th:include="demo :: bottom" class="new_footer"></div>
+
+</body>
+</html>

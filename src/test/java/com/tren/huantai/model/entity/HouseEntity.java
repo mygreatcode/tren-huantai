@@ -1,16 +1,37 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
-import java.util.Objects;
 
 @Entity
-@Table(name = "house", schema = "houseproperty", catalog = "")
+@Table(name = "house", schema = "huantai", catalog = "")
 public class HouseEntity {
     private int id;
     private String houseid;
     private String userid;
     private String state;
+    private int recommend;
+    private HouseinfoEntity houseinfoEntity;
+    @Basic
+    @Column(name = "recommend")
+    public int getRecommend() {
+        return recommend;
+    }
 
+    public void setRecommend(int recommend) {
+        this.recommend = recommend;
+    }
+
+
+
+    @OneToOne(mappedBy = "newHouseEntity")
+    public HouseinfoEntity getHouseinfoEntity() {
+        return houseinfoEntity;
+    }
+
+    public void setHouseinfoEntity(HouseinfoEntity houseinfoEntity) {
+        this.houseinfoEntity = houseinfoEntity;
+    }
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id")
     public int getId() {
@@ -51,19 +72,4 @@ public class HouseEntity {
         this.state = state;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        HouseEntity that = (HouseEntity) o;
-        return id == that.id &&
-                Objects.equals(houseid, that.houseid) &&
-                Objects.equals(userid, that.userid) &&
-                Objects.equals(state, that.state);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, houseid, userid, state);
-    }
 }

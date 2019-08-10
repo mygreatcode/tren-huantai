@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "userinfo", schema = "houseproperty", catalog = "")
+@Table(name = "userinfo", schema = "huantai", catalog = "")
 public class UserinfoEntity {
     private int id;
     private String name;
@@ -17,6 +17,7 @@ public class UserinfoEntity {
     private String userid;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

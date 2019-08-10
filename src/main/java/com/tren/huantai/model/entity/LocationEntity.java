@@ -1,18 +1,78 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "location", schema = "houseproperty", catalog = "")
-public class LocationEntity {
+@Table(name = "location", schema = "huantai", catalog = "")
+public class LocationEntity implements Serializable {
+    private static final long serialVersionUID =8016731463945116201L;
     private int id;
     private String loactionid;
-    private double longitude;
-    private double latitude;
-    private String detailedaddress;
+    private double longitude;//经度
+    private double latitude;//纬度
+    private String detailedaddress;//详细地址
+    private String xiaoqu;//小区
+    private ScrollimgEntity scrollimgEntity;
+    private NewHouseinfoEntity newHouseinfoEntity;
+    private OldhouseinfoEntity oldhouseinfoEntity;
+    private RentinghouseinfoEntity rentinghouseinfoEntity;
+
+
+
+    @JoinColumn(name = "SCROLL_INFO_KEY",unique = true)
+    @OneToOne(cascade=CascadeType.ALL)
+    public ScrollimgEntity getScrollimgEntity() {
+        return scrollimgEntity;
+    }
+
+    public void setScrollimgEntity(ScrollimgEntity scrollimgEntity) {
+        this.scrollimgEntity = scrollimgEntity;
+    }
+
+    @JoinColumn(name = "OLDHOUSE_LOCATION_KEY",unique = true)
+    @OneToOne(cascade=CascadeType.ALL)
+    public OldhouseinfoEntity getOldhouseinfoEntity() {
+        return oldhouseinfoEntity;
+    }
+
+    public void setOldhouseinfoEntity(OldhouseinfoEntity oldhouseinfoEntity) {
+        this.oldhouseinfoEntity = oldhouseinfoEntity;
+    }
+
+    @JoinColumn(name = "RENHOUSE_LOCATION_KEY",unique = true)
+    @OneToOne(cascade=CascadeType.ALL)
+    public RentinghouseinfoEntity getRentinghouseinfoEntity() {
+        return rentinghouseinfoEntity;
+    }
+
+    public void setRentinghouseinfoEntity(RentinghouseinfoEntity rentinghouseinfoEntity) {
+        this.rentinghouseinfoEntity = rentinghouseinfoEntity;
+    }
+
+    @JoinColumn(name = "HOUSE_LOCATION_KEY",unique = true)
+    @OneToOne(cascade=CascadeType.ALL)
+    public NewHouseinfoEntity getNewHouseinfoEntity() {
+        return newHouseinfoEntity;
+    }
+
+    public void setNewHouseinfoEntity(NewHouseinfoEntity newHouseinfoEntity) {
+        this.newHouseinfoEntity = newHouseinfoEntity;
+    }
+
+    @Basic
+    @Column(name = "xiaoqu")
+    public String getXiaoqu() {
+        return xiaoqu;
+    }
+
+    public void setXiaoqu(String xiaoqu) {
+        this.xiaoqu = xiaoqu;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

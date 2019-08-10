@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.util.Objects;
 
 @Entity
-@Table(name = "oldhouseinfo", schema = "houseproperty", catalog = "")
+@Table(name = "oldhouseinfo", schema = "huantai", catalog = "")
 public class OldhouseinfoEntity {
     private int id;
     private String oldhouseid;
@@ -27,6 +27,7 @@ public class OldhouseinfoEntity {
     private String whoproperty;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

@@ -1,36 +1,54 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.util.Objects;
+import java.util.Set;
 
 @Entity
-@Table(name = "houseinfo", schema = "houseproperty", catalog = "")
-@IdClass(HouseinfoEntityPK.class)
-public class HouseinfoEntity {
+@Table(name = "houseinfo", schema = "huantai", catalog = "")
+public class HouseinfoEntity  implements Serializable {
     private int id;
     private String houseid;
     private String headline;
     private int price;
+    private int unitprice;
     private String housetype;
     private String area;
-    private String previewimgurl;
-    private String xiaoqu;
-    private String location;
+    private String imgid;
+    private String locationid;
     private Date buildingtime;
     private String buildinghead;
     private String floor;
-    private int unitprice;
     private String downpayment;
     private String monthlypay;
     private String decorated;
     private String sellingpoints;
     private String houseencoding;
     private Timestamp releasetime;
-    private String imgid;
-    private String locationid;
+    private HouseEntity houseEntity;
+    private Set<ImgEntity> imgEntity;
+    @OneToMany(cascade=CascadeType.ALL,fetch=FetchType.LAZY,targetEntity=ImgEntity.class)
+    @JoinColumn(name="IMG_ID")
+    public Set<ImgEntity> getImgEntity() {
+        return imgEntity;
+    }
 
+    public void setImgEntity(Set<ImgEntity> imgEntity) {
+        this.imgEntity = imgEntity;
+    }
+
+    @JoinColumn(name = "HOUSE_INFO_KEY",unique = true)
+    @OneToOne(fetch =FetchType.LAZY)
+    public HouseEntity getHouseEntity() {
+        return houseEntity;
+    }
+
+    public void setHouseEntity(HouseEntity houseEntity) {
+        this.houseEntity = houseEntity;
+    }
+   @GeneratedValue(strategy = GenerationType.AUTO)
     @Id
     @Column(name = "id")
     public int getId() {
@@ -72,6 +90,16 @@ public class HouseinfoEntity {
     }
 
     @Basic
+    @Column(name = "unitprice")
+    public int getUnitprice() {
+        return unitprice;
+    }
+
+    public void setUnitprice(int unitprice) {
+        this.unitprice = unitprice;
+    }
+
+    @Basic
     @Column(name = "housetype")
     public String getHousetype() {
         return housetype;
@@ -92,33 +120,23 @@ public class HouseinfoEntity {
     }
 
     @Basic
-    @Column(name = "previewimgurl")
-    public String getPreviewimgurl() {
-        return previewimgurl;
+    @Column(name = "imgid")
+    public String getImgid() {
+        return imgid;
     }
 
-    public void setPreviewimgurl(String previewimgurl) {
-        this.previewimgurl = previewimgurl;
-    }
-
-    @Basic
-    @Column(name = "xiaoqu")
-    public String getXiaoqu() {
-        return xiaoqu;
-    }
-
-    public void setXiaoqu(String xiaoqu) {
-        this.xiaoqu = xiaoqu;
+    public void setImgid(String imgid) {
+        this.imgid = imgid;
     }
 
     @Basic
-    @Column(name = "location")
-    public String getLocation() {
-        return location;
+    @Column(name = "locationid")
+    public String getLocationid() {
+        return locationid;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public void setLocationid(String locationid) {
+        this.locationid = locationid;
     }
 
     @Basic
@@ -149,16 +167,6 @@ public class HouseinfoEntity {
 
     public void setFloor(String floor) {
         this.floor = floor;
-    }
-
-    @Basic
-    @Column(name = "unitprice")
-    public int getUnitprice() {
-        return unitprice;
-    }
-
-    public void setUnitprice(int unitprice) {
-        this.unitprice = unitprice;
     }
 
     @Basic
@@ -221,54 +229,6 @@ public class HouseinfoEntity {
         this.releasetime = releasetime;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        HouseinfoEntity that = (HouseinfoEntity) o;
-        return id == that.id &&
-                price == that.price &&
-                unitprice == that.unitprice &&
-                Objects.equals(houseid, that.houseid) &&
-                Objects.equals(headline, that.headline) &&
-                Objects.equals(housetype, that.housetype) &&
-                Objects.equals(area, that.area) &&
-                Objects.equals(previewimgurl, that.previewimgurl) &&
-                Objects.equals(xiaoqu, that.xiaoqu) &&
-                Objects.equals(location, that.location) &&
-                Objects.equals(buildingtime, that.buildingtime) &&
-                Objects.equals(buildinghead, that.buildinghead) &&
-                Objects.equals(floor, that.floor) &&
-                Objects.equals(downpayment, that.downpayment) &&
-                Objects.equals(monthlypay, that.monthlypay) &&
-                Objects.equals(decorated, that.decorated) &&
-                Objects.equals(sellingpoints, that.sellingpoints) &&
-                Objects.equals(houseencoding, that.houseencoding) &&
-                Objects.equals(releasetime, that.releasetime);
-    }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(id, houseid, headline, price, housetype, area, previewimgurl, xiaoqu, location, buildingtime, buildinghead, floor, unitprice, downpayment, monthlypay, decorated, sellingpoints, houseencoding, releasetime);
-    }
 
-    @Basic
-    @Column(name = "imgid")
-    public String getImgid() {
-        return imgid;
-    }
-
-    public void setImgid(String imgid) {
-        this.imgid = imgid;
-    }
-
-    @Basic
-    @Column(name = "locationid")
-    public String getLocationid() {
-        return locationid;
-    }
-
-    public void setLocationid(String locationid) {
-        this.locationid = locationid;
-    }
 }

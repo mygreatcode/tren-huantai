@@ -1,17 +1,19 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "menu", schema = "houseproperty", catalog = "")
-public class MenuEntity {
+@Table(name = "menu", schema = "huantai", catalog = "")
+public class MenuEntity implements Serializable {
     private int id;
     private String menu;
     private String url;
-    private int menuid;
+
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -41,15 +43,6 @@ public class MenuEntity {
         this.url = url;
     }
 
-    @Basic
-    @Column(name = "menuid")
-    public int getMenuid() {
-        return menuid;
-    }
-
-    public void setMenuid(int menuid) {
-        this.menuid = menuid;
-    }
 
     @Override
     public boolean equals(Object o) {
@@ -57,13 +50,12 @@ public class MenuEntity {
         if (o == null || getClass() != o.getClass()) return false;
         MenuEntity that = (MenuEntity) o;
         return id == that.id &&
-                menuid == that.menuid &&
                 Objects.equals(menu, that.menu) &&
                 Objects.equals(url, that.url);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, menu, url, menuid);
+        return Objects.hash(id, menu, url);
     }
 }

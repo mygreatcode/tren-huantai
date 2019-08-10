@@ -10,4 +10,4 @@ ${AnsiColor.BLUE}
 |/     \|(_______)|/     \||/    )_)   )_(   |/     \|\_______/
 
  ${AnsiColor.BRIGHT_YELLOW}
- ::: Spring-Boot ${spring-boot.version}     ::: Halo (version:${application.formatted-version})
+ ::: Spring-Boot ${spring-boot.version}     ::: hauntai(version:${application.formatted-version})

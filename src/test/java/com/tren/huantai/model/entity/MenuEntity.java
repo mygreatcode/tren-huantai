@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "menu", schema = "houseproperty", catalog = "")
+@Table(name = "menu", schema = "huantai", catalog = "")
 public class MenuEntity {
     private int id;
     private String menu;
@@ -12,6 +12,7 @@ public class MenuEntity {
     private int menuid;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

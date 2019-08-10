@@ -1,9 +1,6 @@
 package com.tren.huantai.model.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
@@ -25,7 +22,8 @@ public class RentinghouseinfoEntity {
     private String describe;
     private Integer imgid;
 
-    @Basic
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -156,7 +154,7 @@ public class RentinghouseinfoEntity {
     }
 
     @Basic
-    @Column(name = "describe")
+    @Column(name = "described")
     public String getDescribe() {
         return describe;
     }

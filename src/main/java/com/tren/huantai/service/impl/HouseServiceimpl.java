@@ -1,6 +1,6 @@
 package com.tren.huantai.service.impl;
 
-import com.tren.huantai.model.entity.HouseEntity;
+import com.tren.huantai.model.entity.NewHouseEntity;
 import com.tren.huantai.repository.base.HouseRepository;
 import com.tren.huantai.service.base.HouseService;
 import javafx.scene.control.Pagination;
@@ -16,44 +16,44 @@ public class HouseServiceimpl implements HouseService {
     HouseRepository houseRepository;
 
     @Override
-    public HouseEntity addHouseinfo(HouseEntity houseEntity) {
-        Assert.notNull(houseEntity," param must not be null");
-        return houseRepository.save(houseEntity);
+    public NewHouseEntity addHouseinfo(NewHouseEntity newHouseEntity) {
+        Assert.notNull(newHouseEntity," param must not be null");
+        return houseRepository.save(newHouseEntity);
     }
 
     @Override
-    public void removeUser(HouseEntity houseEntity) {
-        Assert.notNull(houseEntity," param must not be null");
-        houseRepository.delete(houseEntity);
+    public void removeUser(NewHouseEntity newHouseEntity) {
+        Assert.notNull(newHouseEntity," param must not be null");
+        houseRepository.delete(newHouseEntity);
     }
 
     @Override
-    public HouseEntity saveOrUpdateUser(HouseEntity houseEntity) {
+    public NewHouseEntity saveOrUpdateUser(NewHouseEntity newHouseEntity) {
 
         return null;
     }
 
 
     @Override
-    public HouseEntity findByhouseid(String houseid) {
+    public NewHouseEntity findByhouseid(String houseid) {
         Assert.notNull(houseid," param must not be null");
         return houseRepository.findByhouseid(houseid);
     }
 
     @Override
-    public HouseEntity findByuserid(String userid) {
+    public NewHouseEntity findByuserid(String userid) {
         Assert.notNull(userid," param must not be null");
         return null;
     }
 
 
     @Override
-    public List<HouseEntity> findAll() {
+    public List<NewHouseEntity> findAll() {
         return houseRepository.findAll();
     }
 
     @Override
-    public List<HouseEntity> queryPage(Pagination pagination) {
+    public List<NewHouseEntity> queryPage(Pagination pagination) {
 
         return null;
     }

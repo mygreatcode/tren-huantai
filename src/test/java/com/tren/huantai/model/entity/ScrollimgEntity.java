@@ -4,7 +4,7 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "scrollimg", schema = "houseproperty", catalog = "")
+@Table(name = "scrollimg", schema = "huantai", catalog = "")
 public class ScrollimgEntity {
     private int id;
     private String imgpath;
@@ -13,6 +13,7 @@ public class ScrollimgEntity {
     private String imgdetails;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

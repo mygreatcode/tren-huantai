@@ -1,20 +1,18 @@
 package com.tren.huantai.model.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "oldhouse", schema = "houseproperty", catalog = "")
+@Table(name = "oldhouse", schema = "huantai", catalog = "")
 public class OldhouseEntity {
     private int id;
     private String oldhouseid;
     private String userid;
     private String state;
 
-    @Basic
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

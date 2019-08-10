@@ -4,14 +4,25 @@ import javax.persistence.*;
 import java.util.Objects;
 
 @Entity
-@Table(name = "rentinghouse", schema = "houseproperty", catalog = "")
+@Table(name = "rentinghouse", schema = "huantai", catalog = "")
 public class RentinghouseEntity {
     private int id;
     private String rentinghouseid;
     private String userid;
     private Integer state;
+    private int recommend;
+    @Basic
+    @Column(name = "recommend")
+    public int getRecommend() {
+        return recommend;
+    }
+
+    public void setRecommend(int recommend) {
+        this.recommend = recommend;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;

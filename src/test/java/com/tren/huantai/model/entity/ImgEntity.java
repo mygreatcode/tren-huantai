@@ -1,16 +1,18 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "img", schema = "houseproperty", catalog = "")
-public class ImgEntity {
+@Table(name = "img", schema = "huantai", catalog = "")
+public class ImgEntity implements Serializable {
     private int id;
     private String imgid;
     private String imgurl;
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -20,7 +22,8 @@ public class ImgEntity {
         this.id = id;
     }
 
-    @Basic
+
+    @Id
     @Column(name = "imgid")
     public String getImgid() {
         return imgid;

@@ -1,5 +1,8 @@
 var index="0";
+var actionurl;
 function mytitleclick(e){
+    $(".put").val("");
+    $("#searchlist").children().remove()
     index=$(e).attr("tabindex");
     init(index)
 
@@ -11,42 +14,52 @@ function init(s){
 switch (s) {
     case "0":
         hintplace="请输入新房源信息";
+        actionurl="/house.search";
         break;
     case "1":
         hintplace="请输入小区信息";
+        actionurl="/xiaoqu.search";
         break;
     case "2":
         hintplace="请输入二手房源信息";
+        actionurl="/oldhouse.search";
         break;
     case "3":
         hintplace="请输入出租房源信息";
+        actionurl="/rentinghouse.search";
         break;
 }
     $(".nice-select").find("ul").hide();
 $(".put").attr("placeholder",hintplace)
 }
 
-var actionurl=""
+/**
+ * 监听输入变化用ajax请求数据
+ * @param e
+ */
+function myinput(e) {
+    var txt=$(e).val();
+    $.post(actionurl,{searchinput:txt},function(result){
+       var obj = JSON.parse(result);
+        $("#searchlist").children().remove()
+       if (obj!=null) {
+           $.each(obj.info, function (i, f) {
+               if (index!=1)
+               $("#searchlist").append('<li><a href="#">' + f.headline + '</a></li>')
+               else
+                   $("#searchlist").append('<li><a href="#">' + f.detailedaddress + '   '+f.houseinfoEntity.headline+'</a></li>')
+           })
+       }
+
+
+    });
+}
+
+
 function searchsubmitclick(e){
-
-    switch (index) {
-          case "0":
-              actionurl="";
-          break;
-          case "1":
-              actionurl="";
-          break;
-          case "2":
-              actionurl="";
-          break;
-          case "3":
-              actionurl="";
-          break;
-
-    }
-
    $("#search_form").attr("action",actionurl).submit();
 }
+
 // input 点击事件
 $(document).on('click','.nice-select',function(e){
     $(".nice-select").find("ul").hide();// 让ul隐藏（当你一个页面多个这样的输入框时你就会用到）

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8">
+    <title>layui</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link rel="stylesheet" href="../layui/css/layui.css"  media="all">
+    <script th:src="@{/layui/layui.js}" charset="utf-8"></script>
+    <script th:src="@{/webjars/jquery/3.2.1/jquery.js}"></script>
+    <script th:src="@{/js/loginandregister/user.js}"></script>
+    <!-- 注意：如果你直接复制所有代码到本地，上述css路径需要改成你本地的 -->
+</head>
+<body>
+
+
+<ul  class="layui-nav">
+    <li class="layui-nav-item">
+        <a  href="javascript:;">权限管理<span class="layui-badge">9</span></a>
+    </li>
+    <li class="layui-nav-item layui-this">
+        <a href="javascript:;">房源管理</a>
+        <dl class="layui-nav-child">
+            <dd><a onclick="mytitleclick(this)" href="">发布房源</a></dd>
+            <dd><a href="">房源管理</a></dd>
+        </dl>
+    </li>
+    <li class="layui-nav-item">
+        <a href="">个人中心<span class="layui-badge-dot"></span></a>
+    </li>
+    <li class="layui-nav-item" lay-unselect="">
+        <a href="javascript:;"><img src="//t.cn/RCzsdCq" class="layui-nav-img">我</a>
+        <dl class="layui-nav-child">
+            <dd><a href="javascript:;">修改信息</a></dd>
+            <dd><a href="javascript:;">安全管理</a></dd>
+            <dd><a href="javascript:;">退了</a></dd>
+        </dl>
+    </li>
+</ul>
+
+<div style="width: 100%;height: 100%">
+    <iframe src="" frameborder="0"  style="width: 100%; position:absolute; background-color: #ee3e3e; height:100%;">
+
+    </iframe>
+
+</div>
+<!-- 注意：如果你直接复制所有代码到本地，上述js路径需要改成你本地的 -->
+
+
+
+</body>
+</html>

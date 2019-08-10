@@ -1,6 +1,6 @@
 package com.tren.huantai.service.base;
 
-import com.tren.huantai.model.entity.HouseEntity;
+import com.tren.huantai.model.entity.NewHouseEntity;
 import javafx.scene.control.Pagination;
 
 import java.util.List;
@@ -8,23 +8,23 @@ import java.util.List;
 public interface HouseService {
     /**
      * 添加
-     * @param houseEntity
+     * @param newHouseEntity
      */
-    public HouseEntity addHouseinfo(HouseEntity houseEntity);
+    public NewHouseEntity addHouseinfo(NewHouseEntity newHouseEntity);
 
 
     /**
      * 删除
-     * @param houseEntity
+     * @param newHouseEntity
      */
-    public void removeUser(HouseEntity houseEntity);
+    public void removeUser(NewHouseEntity newHouseEntity);
 
 
     /**
      * 保存或修改
-     * @param houseEntity
+     * @param newHouseEntity
      */
-    public HouseEntity saveOrUpdateUser(HouseEntity houseEntity);
+    public NewHouseEntity saveOrUpdateUser(NewHouseEntity newHouseEntity);
 
 
     /**
@@ -32,26 +32,26 @@ public interface HouseService {
      * @param houseid
      * @return
      */
-    public HouseEntity findByhouseid(String houseid);
+    public NewHouseEntity findByhouseid(String houseid);
 
     /**
      * 根据用户名查询
      * @param userid
      * @return
      */
-    public HouseEntity findByuserid(String userid);
+    public NewHouseEntity findByuserid(String userid);
 
 
     /**
      * 查询所有
      * @return
      */
-    public List<HouseEntity> findAll();
+    public List<NewHouseEntity> findAll();
 
     /**
      * 分页查询
      * @return
      */
-    public List<HouseEntity> queryPage(Pagination pagination);
+    public List<NewHouseEntity> queryPage(Pagination pagination);
 
 }

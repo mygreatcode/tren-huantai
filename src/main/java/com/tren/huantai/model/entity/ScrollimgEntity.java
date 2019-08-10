@@ -1,18 +1,49 @@
 package com.tren.huantai.model.entity;
 
 import javax.persistence.*;
+import java.io.Serializable;
 import java.util.Objects;
 
 @Entity
-@Table(name = "scrollimg", schema = "houseproperty", catalog = "")
-public class ScrollimgEntity {
+@Table(name = "scrollimg", schema = "huantai", catalog = "")
+public class ScrollimgEntity implements Serializable {
     private int id;
     private String imgpath;
-    private int imgid;
     private String imgtitle;
     private String imgdetails;
+    private String url;
+    private LocationEntity locationEntity;
+    private int state;
+
+@Basic
+@Column(name = "state")
+    public int getState() {
+        return state;
+    }
+
+    public void setState(int state) {
+        this.state = state;
+    }
+
+    @Basic
+    @Column(name = "url")
+    public String getUrl() {
+        return url;
+    }
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    @OneToOne(mappedBy = "scrollimgEntity",cascade=CascadeType.ALL)
+    public LocationEntity getLocationEntity() {
+        return locationEntity;
+    }
+    public void setLocationEntity(LocationEntity locationEntity) {
+        this.locationEntity = locationEntity;
+    }
 
     @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "id")
     public int getId() {
         return id;
@@ -30,16 +61,6 @@ public class ScrollimgEntity {
 
     public void setImgpath(String imgpath) {
         this.imgpath = imgpath;
-    }
-
-    @Basic
-    @Column(name = "imgid")
-    public int getImgid() {
-        return imgid;
-    }
-
-    public void setImgid(int imgid) {
-        this.imgid = imgid;
     }
 
     @Basic
@@ -68,7 +89,7 @@ public class ScrollimgEntity {
         if (o == null || getClass() != o.getClass()) return false;
         ScrollimgEntity that = (ScrollimgEntity) o;
         return id == that.id &&
-                imgid == that.imgid &&
+
                 Objects.equals(imgpath, that.imgpath) &&
                 Objects.equals(imgtitle, that.imgtitle) &&
                 Objects.equals(imgdetails, that.imgdetails);
@@ -76,6 +97,6 @@ public class ScrollimgEntity {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, imgpath, imgid, imgtitle, imgdetails);
+        return Objects.hash(id, imgpath,  imgtitle, imgdetails);
     }
 }
